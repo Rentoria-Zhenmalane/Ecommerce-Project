@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router';
-import { HomePage } from './pages/HomePage'
+import { HomePage } from './pages/HomePage';
+import { CheckoutPage } from './pages/CheckoutPage'
 
 function App() {
 
@@ -8,7 +9,7 @@ function App() {
       <Route index element={<HomePage />} /> { /* path is the last part of the URL. HomePage has empty URL so set it to / .  element = which component to display*/}
 
 
-      <Route path="checkout" element={<div>test check out page</div>}></Route>
+      <Route path="checkout" element={<CheckoutPage />} />
     </Routes>
   )
 }
