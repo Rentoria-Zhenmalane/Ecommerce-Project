@@ -8,7 +8,6 @@ function App() {
     <Routes>
       <Route index element={<HomePage />} /> { /* path is the last part of the URL. HomePage has empty URL so set it to / .  element = which component to display*/}
 
-
       <Route path="checkout" element={<CheckoutPage />} />
     </Routes>
   )
