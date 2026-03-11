@@ -8,6 +8,7 @@ export function OrdersPage() {
     <div>
       <title>Orders</title>
       <Header />
+
       <div className="header">
         <div className="left-section">
           <a href="/" className="header-link">
