@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import './CheckoutHeader.css';
 import './CheckoutPage.css';
 
 export function CheckoutPage() {
+  const [deliveryOption1, setDeliveryOption1] = useState('0');
+  const [deliveryOption2, setDeliveryOption2] = useState('1');
+
   return (
     <>
       <link rel="icon" type="image/png" href="images/cart-favicon.png" />
@@ -49,7 +53,8 @@ export function CheckoutPage() {
                     Choose a delivery option:
                   </div>
                   <div className="delivery-option">
-                    <input type="radio" checked
+                    <input type="radio" value="0" checked={deliveryOption1 === '0'}
+                      onChange={() => setDeliveryOption1('0')}
                       className="delivery-option-input"
                       name="delivery-option-1" />
                     <div>
@@ -62,7 +67,8 @@ export function CheckoutPage() {
                     </div>
                   </div>
                   <div className="delivery-option">
-                    <input type="radio"
+                    <input type="radio" value="1" checked={deliveryOption1 === '1'}
+                      onChange={() => setDeliveryOption1('1')}
                       className="delivery-option-input"
                       name="delivery-option-1" />
                     <div>
@@ -75,7 +81,8 @@ export function CheckoutPage() {
                     </div>
                   </div>
                   <div className="delivery-option">
-                    <input type="radio"
+                    <input type="radio" value="2" checked={deliveryOption1 === '2'}
+                      onChange={() => setDeliveryOption1('2')}
                       className="delivery-option-input"
                       name="delivery-option-1" />
                     <div>
@@ -126,7 +133,9 @@ export function CheckoutPage() {
                   </div>
 
                   <div className="delivery-option">
-                    <input type="radio" className="delivery-option-input"
+                    <input type="radio" value="0" checked={deliveryOption2 === '0'}
+                      onChange={() => setDeliveryOption2('0')}
+                      className="delivery-option-input"
                       name="delivery-option-2" />
                     <div>
                       <div className="delivery-option-date">
@@ -138,7 +147,9 @@ export function CheckoutPage() {
                     </div>
                   </div>
                   <div className="delivery-option">
-                    <input type="radio" checked className="delivery-option-input"
+                    <input type="radio" value="1" checked={deliveryOption2 === '1'}
+                      onChange={() => setDeliveryOption2('1')}
+                      className="delivery-option-input"
                       name="delivery-option-2" />
                     <div>
                       <div className="delivery-option-date">
@@ -150,7 +161,9 @@ export function CheckoutPage() {
                     </div>
                   </div>
                   <div className="delivery-option">
-                    <input type="radio" className="delivery-option-input"
+                    <input type="radio" value="2" checked={deliveryOption2 === '2'}
+                      onChange={() => setDeliveryOption2('2')}
+                      className="delivery-option-input"
                       name="delivery-option-2" />
                     <div>
                       <div className="delivery-option-date">
