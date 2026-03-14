@@ -1,15 +1,24 @@
 import axios from 'axios';
+import { useEffect } from 'react';
 import { Header } from '../components/Header';
 import { products } from '../../starting-code/data/products'
 import './HomePage.css';
 
 
 export function HomePage() {
-  {/*This is a much easier and cleaner way of fetching data instead of using fetch(). Same code as fetch() code below */ }
-  axios.get('http://localhost:3000/api/products')
-    .then((response) => {
-      response.data
-    })
+
+
+  {/*
+  -This is a much easier and cleaner way of fetching data instead of using fetch(). Same code as fetch() code below.
+  -We put it in useEffect to control how often we want it to run which once only */ }
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/api/products')
+      .then((response) => {
+        console.log(response.data);
+      });
+  }, []);
+
 
   {/*fetch('http://localhost:3000/api/products')
     .then((response) => {
