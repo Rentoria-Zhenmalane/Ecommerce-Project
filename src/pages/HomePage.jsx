@@ -1,15 +1,22 @@
+import axios from 'axios';
 import { Header } from '../components/Header';
 import { products } from '../../starting-code/data/products'
 import './HomePage.css';
 
 
 export function HomePage() {
-  fetch('http://localhost:3000/api/products')
+  {/*This is a much easier and cleaner way of fetching data instead of using fetch(). Same code as fetch() code below */ }
+  axios.get('http://localhost:3000/api/products')
+    .then((response) => {
+      response.data
+    })
+
+  {/*fetch('http://localhost:3000/api/products')
     .then((response) => {
       return response.json()
     }).then((data) => {
       console.log(data);
-    });
+    });*\}
   {/* 
      - .json gives us the data attached to the repsonse, however this is also asynchronous so we have to use .then()
      - now we have access to the data, we can use it as parameter in .then()
