@@ -6,14 +6,14 @@ import './HomePage.css';
 export function HomePage() {
   fetch('http://localhost:3000/api/products')
     .then((response) => {
-      response.json().then((data) => {
-        console.log(data);
-      });
-      {/* 
-        - .json gives us the data attached to the repsonse, however this is also asynchronous so we have to use .then()
-        - now we have access to the data, we can use it as parameter in .then()
-        */}
-    })
+      return response.json()
+    }).then((data) => {
+      console.log(data);
+    });
+  {/* 
+     - .json gives us the data attached to the repsonse, however this is also asynchronous so we have to use .then()
+     - now we have access to the data, we can use it as parameter in .then()
+  */}
   {/*
     -Called data fetching, gets data from backend
     - fetch is built in function provided by javascript. Put URL where you get data from.
