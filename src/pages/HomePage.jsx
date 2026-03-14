@@ -4,6 +4,27 @@ import './HomePage.css';
 
 
 export function HomePage() {
+  fetch('http://localhost:3000/api/products')
+    .then((response) => {
+      response.json().then((data) => {
+        console.log(data);
+      });
+      {/* 
+        - .json gives us the data attached to the repsonse, however this is also asynchronous so we have to use .then()
+        - now we have access to the data, we can use it as parameter in .then()
+        */}
+    })
+  {/*
+    -Called data fetching, gets data from backend
+    - fetch is built in function provided by javascript. Put URL where you get data from.
+    -Can't save in a variable, also called an ASYNCHRONOUS code
+    -fetch() Returns a promise, promise lets us wait for asynch code to finish  
+    -method .then --> fetch() takes time to get a response from backend, so code will keep going line by line. When the code finishes that's the time we get response from backend then function in .then() will run
+    -response a parameter from the response of backend
+    - wehne we contact backend using fetch() that's called request. When backend responds with some data thae called response
+
+    */}
+
   return (
     <>
       <link rel="icon" type="image/png" href="/images/home-favicon.png" />
