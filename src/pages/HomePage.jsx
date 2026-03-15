@@ -7,18 +7,18 @@ import './HomePage.css';
 
 export function HomePage() {
 
-  const [products, setProducts] = useState([products]);
+  const [products, setProducts] = useState([]);
+
 
   {/*
   -Axios is much easier and cleaner way of fetching data instead of using fetch(). Same as fetch() code below.
   -We put it in useEffect to control how often we want it to run which is once only */ }
 
-
   useEffect(() => {
-    setTimeout(() => {
-      axios.get('http://localhost:3000/api/products')
-        .then(res => setProducts(res.data));
-    }, 3000);
+    axios.get('http://localhost:3000/api/products')
+      .then((response) => {
+        setProducts(response.data);
+      });
   }, []);
 
   {/*useEffect(() => {
@@ -27,7 +27,8 @@ export function HomePage() {
         setProducts(response.data);
       });
   }, []);
-  */}
+
+
 
   {/*fetch('http://localhost:3000/api/products')
     .then((response) => {
