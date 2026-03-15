@@ -1,24 +1,33 @@
 import axios from 'axios';
+import { useState } from 'react';
 import { useEffect } from 'react';
 import { Header } from '../components/Header';
-import { products } from '../../starting-code/data/products'
 import './HomePage.css';
 
 
 export function HomePage() {
 
+  const [products, setProducts] = useState([products]);
 
   {/*
-  -This is a much easier and cleaner way of fetching data instead of using fetch(). Same code as fetch() code below.
-  -We put it in useEffect to control how often we want it to run which once only */ }
+  -Axios is much easier and cleaner way of fetching data instead of using fetch(). Same as fetch() code below.
+  -We put it in useEffect to control how often we want it to run which is once only */ }
+
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/products')
-      .then((response) => {
-        console.log(response.data);
-      });
+    setTimeout(() => {
+      axios.get('http://localhost:3000/api/products')
+        .then(res => setProducts(res.data));
+    }, 3000);
   }, []);
 
+  {/*useEffect(() => {
+    axios.get('http://localhost:3000/api/products')
+      .then((response) => {
+        setProducts(response.data);
+      });
+  }, []);
+  */}
 
   {/*fetch('http://localhost:3000/api/products')
     .then((response) => {
@@ -33,11 +42,11 @@ export function HomePage() {
   {/*
     -Called data fetching, gets data from backend
     - fetch is built in function provided by javascript. Put URL where you get data from.
-    -Can't save in a variable, also called an ASYNCHRONOUS code
+    -Can't save in a variable, also called as ASYNCHRONOUS code
     -fetch() Returns a promise, promise lets us wait for asynch code to finish  
-    -method .then --> fetch() takes time to get a response from backend, so code will keep going line by line. When the code finishes that's the time we get response from backend then function in .then() will run
+    -method .then --> fetch() takes time to get a response from backend, so code will keep going line by line. When the code finishes that's the time we get response from backend then function in .then() will run.
     -response a parameter from the response of backend
-    - wehne we contact backend using fetch() that's called request. When backend responds with some data thae called response
+    - when we contact backend using fetch() that's called request. When backend responds with some data that's called response
 
     */}
 
